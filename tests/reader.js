@@ -41,7 +41,7 @@ describe('Reader', () => {
     it("map_right", () => {
         const c = Reader.of(3)
             .map(x => x * 2)
-            .chain(x => x / 3)
+            .chain(x => Reader.of(x / 3))
 
         assert.strictEqual(2, Reader.run(c, 'def'))
     })

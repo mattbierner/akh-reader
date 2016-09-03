@@ -41,8 +41,8 @@ const ReaderT = m => {
         }
     })
 
-    Instance.prototype.run = function () {
-        return ReaderT.run(this)
+    Instance.prototype.run = function (r) {
+        return ReaderT.run(this, r)
     }
 
     return Instance

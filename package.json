@@ -23,6 +23,7 @@
     "akh.identity": "^0.1.0"
   },
   "devDependencies": {
+    "akh.list": "0.0.1",
     "akh.state": "^0.0.0",
     "chai": "*",
     "mocha": "*"

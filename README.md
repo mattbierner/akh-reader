@@ -11,7 +11,7 @@ $ npm install --save akh
 ```
 
 ## Usage
-`ReaderT` and `Reader` implement the [Fantasy Land][fl] monad, monoid, functor, and applicative functor interfaces.
+`ReaderT` and `Reader` implement the [Fantasy Land][fl] monad, functor, and applicative functor interfaces. ``ReaderT` is also a monoid if the underlying type is.
 
 <a href="https://github.com/fantasyland/fantasy-land">
     <img src="https://raw.github.com/fantasyland/fantasy-land/master/logo.png" align="right" width="82px" height="82px" alt="Fantasy Land logo" />
