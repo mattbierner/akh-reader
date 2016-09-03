@@ -4,7 +4,7 @@ The ReaderT transformer, `ReaderT`, adds error control to a monad. The base type
 
 ```bash
 # To use as standalone package
-$ npm install --save akh.maybe
+$ npm install --save akh.reader
 
 # To use as part of akh library
 $ npm install --save akh
@@ -19,39 +19,41 @@ $ npm install --save akh
 
 ```js
 // Reader monad
-require('akh.maybe').Reader
+require('akh.reader').Reader
 require('akh').Reader
 
 // Reader monad transformer
-require('akh.maybe').ReaderT
+require('akh.reader').ReaderT
 require('akh').ReaderT
 ```
 
-#### `Reader.run(m)`, `m.run()`
-Perform a error computation `m` and return a maybe object result
+#### `Reader.run(m, r)`, `m.run(r)`
+Perform a reader computation `m` in environment `r` and return result
 
 ```js
-Reader.run(Reader.just(3).map(x => -x)) === { just: true, value: -3 }
-Reader.run(Reader.nothing.map(x => -x)) === { nothing: true }
+Reader.run(
+    Reader.asks(r => r.a).map(x => x * 2),
+    { a: 10, b: 3 }
+) === 20
 ```
 
 #### `ReaderT.run(t)`, `t.run()`
 Same as `Reader.run` but for a monad transformer. Returns an `Reader` value inside of the inner monad.
 
 
-#### `Reader.maybe(m, def)`, `m.maybe(def)`
-Perform an maybe computation `m` and return the result if it succeeds and `def` if it fails.
-
-
 ## Reader Interface
 
-#### `Reader.just(x)`
-#### `ReaderT(m).just(x)`
-Same as `Reader.of`. Success value.
+#### `Reader.ask`
+#### `ReaderT(M).ask`
+Return the current environment.
 
-#### `Reader.nothing`
-#### `ReaderT(m).nothing`
-Error value
+#### `Reader.asks(f)`
+#### `ReaderT(M).asks(f)`
+Extract a value from the current environment using `f`.
+
+#### `m.local(f)`
+#### `t.local(f)`
+Execute the current computation in a modified enviroment. `f` maps current enviroment to a new enviroment.
 
 
 ## Contributing
@@ -60,7 +62,7 @@ Contributions are welcome.
 To get started:
 
 ```bash
-$ cd akh-maybe
+$ cd akh-reader
 $ npm install # install dev packages
 $ npm test # run tests
 ```
