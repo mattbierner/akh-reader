@@ -1,0 +1,33 @@
+{
+  "name": "akh.reader",
+  "version": "0.0.0",
+  "description": "Akh reader monad and monad transformer",
+  "author": "Matt Bierner",
+  "license": "MIT",
+  "keywords": [
+    "monad transformer",
+    "monad",
+    "akh",
+    "reader"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattbierner/akh-reader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mattbierner/akh-reader/issues"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "akh.core.spec": "0.x",
+    "akh.identity": "^0.1.0"
+  },
+  "devDependencies": {
+    "akh.state": "^0.0.0",
+    "chai": "*",
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "mocha ./tests"
+  }
+}
