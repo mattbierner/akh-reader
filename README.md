@@ -1,6 +1,6 @@
 # Reader Monad and Monad Transformer for [Akh Javascript Monad Library](https://github.com/mattbierner/akh)
 
-The ReaderT transformer, `ReaderT`, adds error control to a monad. The base type, `Reader`, provides error logic on its own.
+The ReaderT transformer, `ReaderT`, adds a shared "environment" to a monad. The base type, `Reader`, provides a shared "environment" on its own.
 
 ```bash
 # To use as standalone package
